@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tzc.yk.MonitorService.mapper.AppMapper">
+
+    <resultMap id="appTimeInfo" type="AppTimeResponse">
+        <id property="account" column="account" jdbcType="VARCHAR"/>
+        <result property="soft" column="soft" jdbcType="VARCHAR"/>
+        <result property="curTime" column="cur_time" jdbcType="INTEGER"/>
+        <result property="totalTime" column="total_time" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <insert id="addAppTimeInfo">
+        insert into runtime values (#{account},#{soft},#{cur_time},#{total_time})
+    </insert>
+
+    <update id="updateAppTimeInfo">
+        update runtime set cur_time = #{cur_time},total_time = #{total_time} where account = #{account} and soft = #{soft}
+    </update>
+
+    <select id="getAppTimeInfo" resultMap="appTimeInfo">
+        select * from runtime
+        <where>
+            <if test="account != null">
+                account = #{account}
+            </if>
+            <if test="soft != null">
+                and soft = #{soft}
+            </if>
+        </where>
+
+    </select>
+
+</mapper>

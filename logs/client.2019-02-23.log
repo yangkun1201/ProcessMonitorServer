@@ -1,0 +1,281 @@
+2019-02-23 21:34:31,992 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 21:34:34,160 org.springframework.boot.SpringApplication [main] (SpringApplication.java:858) ERROR --> Application run failed
+java.lang.IllegalStateException: java.io.FileNotFoundException: G:\MonitorService\log4j.properties (系统找不到指定的文件。)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:305)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:266)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:229)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:202)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:347)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.tzc.yk.MonitorService.MonitorServiceApplication.main(MonitorServiceApplication.java:10)
+Caused by: java.io.FileNotFoundException: G:\MonitorService\log4j.properties (系统找不到指定的文件。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188)
+	at java.net.URL.openStream(URL.java:1045)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:297)
+	... 14 more
+2019-02-23 21:35:27,089 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 21:35:27,677 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 6048 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 21:35:27,681 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 21:35:29,461 org.mybatis.spring.mapper.ClassPathMapperScanner [main] (Logger.java:44) WARN  --> No MyBatis mapper was found in '[com.tzc.yk.MonitorService]' package. Please check your configuration.
+2019-02-23 21:35:30,850 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 21:35:31,168 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 3359 ms
+2019-02-23 21:35:31,830 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 21:35:32,050 org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [main] (AbstractApplicationContext.java:557) WARN  --> Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2019-02-23 21:35:32,051 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:208) INFO  --> Shutting down ExecutorService 'applicationTaskExecutor'
+2019-02-23 21:35:32,093 org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] (ConditionEvaluationReportLoggingListener.java:142) INFO  --> 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-02-23 21:35:32,106 org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] (LoggingFailureAnalysisReporter.java:42) ERROR --> 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2019-02-23 21:36:56,327 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 21:36:57,004 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 5420 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 21:36:57,007 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 21:37:00,527 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 21:37:00,888 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 3728 ms
+2019-02-23 21:37:01,454 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 21:37:01,961 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 21:37:01,970 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 6.042 seconds (JVM running for 9.268)
+2019-02-23 21:37:15,970 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:524) INFO  --> Initializing Servlet 'dispatcherServlet'
+2019-02-23 21:37:15,988 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:546) INFO  --> Completed initialization in 17 ms
+2019-02-23 21:37:16,185 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-1] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'account' is not present]
+2019-02-23 21:37:38,308 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-3] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'account' is not present]
+2019-02-23 21:37:39,362 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-6] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'account' is not present]
+2019-02-23 21:37:40,234 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-7] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'account' is not present]
+2019-02-23 21:38:17,940 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-9] (LoginController.java:18) INFO  --> account : yangkun
+2019-02-23 21:38:17,941 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-9] (LoginController.java:19) INFO  --> password : 123456
+2019-02-23 21:39:20,731 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 21:39:21,294 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 6400 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 21:39:21,297 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 21:39:24,118 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 21:39:24,434 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 3007 ms
+2019-02-23 21:39:24,957 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 21:39:25,420 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 21:39:25,428 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 5.176 seconds (JVM running for 8.436)
+2019-02-23 21:39:28,220 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:524) INFO  --> Initializing Servlet 'dispatcherServlet'
+2019-02-23 21:39:28,236 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:546) INFO  --> Completed initialization in 16 ms
+2019-02-23 21:39:28,280 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-1] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2019-02-23 21:41:38,949 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-4] (LoginController.java:19) INFO  --> account : yangkun
+2019-02-23 21:41:38,950 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-4] (LoginController.java:20) INFO  --> password : 123
+2019-02-23 21:49:41,150 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-7] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'account' is not present]
+2019-02-23 21:49:56,094 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-8] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'account' is not present]
+2019-02-23 21:52:04,977 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 21:52:05,487 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 10108 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 21:52:05,489 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 21:52:08,830 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 21:52:09,220 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 3551 ms
+2019-02-23 21:52:09,772 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 21:52:10,298 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 21:52:10,306 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 5.801 seconds (JVM running for 9.175)
+2019-02-23 21:53:33,487 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:524) INFO  --> Initializing Servlet 'dispatcherServlet'
+2019-02-23 21:53:33,500 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:546) INFO  --> Completed initialization in 12 ms
+2019-02-23 21:53:33,577 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:20) INFO  --> account : null
+2019-02-23 21:53:33,578 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:21) INFO  --> password : null
+2019-02-23 21:54:11,667 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 21:54:12,257 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 13504 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 21:54:12,262 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 21:54:15,244 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 21:54:15,618 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 3219 ms
+2019-02-23 21:54:16,137 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 21:54:16,617 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 21:54:16,627 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 5.4 seconds (JVM running for 8.89)
+2019-02-23 21:54:24,935 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-4] (FrameworkServlet.java:524) INFO  --> Initializing Servlet 'dispatcherServlet'
+2019-02-23 21:54:24,949 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-4] (FrameworkServlet.java:546) INFO  --> Completed initialization in 13 ms
+2019-02-23 21:54:25,265 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-4] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character (''' (code 39)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character (''' (code 39)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 2, column: 3]]
+2019-02-23 21:55:17,611 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-8] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character (''' (code 39)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character (''' (code 39)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 2, column: 3]]
+2019-02-23 21:58:16,477 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-5] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character (''' (code 39)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character (''' (code 39)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 2, column: 3]]
+2019-02-23 21:58:24,016 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-6] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character (''' (code 39)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character (''' (code 39)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 2, column: 3]]
+2019-02-23 21:59:46,196 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:17) INFO  --> account : yangkun
+2019-02-23 21:59:46,198 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:18) INFO  --> password : 123
+2019-02-23 22:07:32,109 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-10] (LoginController.java:17) INFO  --> account : 1
+2019-02-23 22:07:32,111 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-10] (LoginController.java:18) INFO  --> password : 1
+2019-02-23 22:13:34,312 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-1] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2019-02-23 22:15:20,600 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-5] (LoginController.java:17) INFO  --> account : 1
+2019-02-23 22:15:20,600 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-5] (LoginController.java:18) INFO  --> password : 1
+2019-02-23 22:16:11,364 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-6] (LoginController.java:17) INFO  --> account : 1
+2019-02-23 22:16:11,364 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-6] (LoginController.java:18) INFO  --> password : 1
+2019-02-23 22:16:26,472 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:17) INFO  --> account : 1
+2019-02-23 22:16:26,472 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:18) INFO  --> password : 1
+2019-02-23 22:16:41,724 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-9] (LoginController.java:17) INFO  --> account : 1
+2019-02-23 22:16:41,724 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-9] (LoginController.java:18) INFO  --> password : 1
+2019-02-23 22:17:25,271 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 22:17:25,922 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 13476 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 22:17:25,925 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 22:17:29,900 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 22:17:30,412 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 4302 ms
+2019-02-23 22:17:34,296 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 22:17:35,005 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 11376 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 22:17:35,007 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 22:17:38,844 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 22:17:39,303 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 4100 ms
+2019-02-23 22:17:40,476 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 22:17:41,045 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 22:17:41,074 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 16.329 seconds (JVM running for 20.534)
+2019-02-23 22:17:42,414 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 22:17:42,947 org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] (ConditionEvaluationReportLoggingListener.java:142) INFO  --> 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-02-23 22:17:42,993 org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] (LoggingFailureAnalysisReporter.java:42) ERROR --> 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2019-02-23 22:17:43,000 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:208) INFO  --> Shutting down ExecutorService 'applicationTaskExecutor'
+2019-02-23 22:18:02,100 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 22:18:02,804 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 11692 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 22:18:02,807 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 22:18:06,015 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 22:18:06,413 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 3450 ms
+2019-02-23 22:18:06,965 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 22:18:07,530 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 22:18:07,538 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 5.916 seconds (JVM running for 10.308)
+2019-02-23 22:18:16,193 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:524) INFO  --> Initializing Servlet 'dispatcherServlet'
+2019-02-23 22:18:16,209 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:546) INFO  --> Completed initialization in 15 ms
+2019-02-23 22:18:16,437 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:18) INFO  --> account : 1
+2019-02-23 22:18:16,437 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:19) INFO  --> password : 1
+2019-02-23 22:34:31,692 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:18) INFO  --> account : 1
+2019-02-23 22:34:31,693 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:19) INFO  --> password : 1
+2019-02-23 22:35:05,589 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-4] (LoginController.java:18) INFO  --> account : 1
+2019-02-23 22:35:05,590 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-4] (LoginController.java:19) INFO  --> password : 1
+2019-02-23 22:35:11,575 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-5] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2019-02-23 22:35:31,374 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-6] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2019-02-23 22:36:15,658 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 22:36:16,249 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 15152 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 22:36:16,252 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 22:36:19,419 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 22:36:19,790 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 3399 ms
+2019-02-23 22:36:20,249 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 22:36:20,648 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 22:36:20,657 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 5.408 seconds (JVM running for 8.765)
+2019-02-23 22:36:27,607 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:524) INFO  --> Initializing Servlet 'dispatcherServlet'
+2019-02-23 22:36:27,623 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:546) INFO  --> Completed initialization in 16 ms
+2019-02-23 22:36:27,848 org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8080-exec-1] (AbstractHandlerExceptionResolver.java:197) WARN  --> Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.lang.String com.tzc.yk.MonitorService.controller.LoginController.login(com.tzc.yk.MonitorService.pojo.UserRequest)]
+2019-02-23 22:36:52,793 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 22:36:53,398 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 14160 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 22:36:53,401 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 22:36:56,509 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 22:36:56,821 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 3261 ms
+2019-02-23 22:36:57,374 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 22:36:57,841 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 22:36:57,847 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 5.475 seconds (JVM running for 8.808)
+2019-02-23 22:37:08,260 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:524) INFO  --> Initializing Servlet 'dispatcherServlet'
+2019-02-23 22:37:08,274 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:546) INFO  --> Completed initialization in 13 ms
+2019-02-23 22:41:52,982 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 22:41:53,886 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 13532 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 22:41:53,888 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 22:41:56,830 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 22:41:57,316 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 3279 ms
+2019-02-23 22:41:58,149 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 22:41:58,668 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 22:41:58,676 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 6.381 seconds (JVM running for 11.681)
+2019-02-23 22:42:05,926 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:524) INFO  --> Initializing Servlet 'dispatcherServlet'
+2019-02-23 22:42:05,940 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:546) INFO  --> Completed initialization in 14 ms
+2019-02-23 22:42:05,988 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:20) INFO  --> service received
+2019-02-23 22:42:14,715 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-2] (LoginController.java:20) INFO  --> service received
+2019-02-23 22:42:20,525 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-4] (LoginController.java:20) INFO  --> service received
+2019-02-23 22:42:21,907 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-5] (LoginController.java:20) INFO  --> service received
+2019-02-23 22:42:23,127 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:20) INFO  --> service received
+2019-02-23 22:42:24,203 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-6] (LoginController.java:20) INFO  --> service received
+2019-02-23 22:46:48,420 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-8] (LoginController.java:20) INFO  --> service received
+2019-02-23 22:49:03,208 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 22:49:04,073 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 8160 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 22:49:04,076 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 22:49:20,612 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 22:49:21,536 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 12104 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 22:49:21,542 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 22:49:25,865 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 22:49:26,329 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 4641 ms
+2019-02-23 22:49:27,648 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 22:49:28,682 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 22:49:28,690 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 8.761 seconds (JVM running for 14.246)
+2019-02-23 22:49:51,514 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:524) INFO  --> Initializing Servlet 'dispatcherServlet'
+2019-02-23 22:49:51,531 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:546) INFO  --> Completed initialization in 16 ms
+2019-02-23 22:49:51,788 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:18) INFO  --> account : yangkun
+2019-02-23 22:49:51,789 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:19) INFO  --> password : 123
+2019-02-23 22:49:51,789 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:20) INFO  --> service received
+2019-02-23 23:02:32,992 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 23:02:34,026 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 15916 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 23:02:34,028 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 23:02:38,269 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 23:02:38,810 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 4562 ms
+2019-02-23 23:02:43,864 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 23:02:48,827 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 23:02:48,837 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 16.388 seconds (JVM running for 21.939)
+2019-02-23 23:03:40,632 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:524) INFO  --> Initializing Servlet 'dispatcherServlet'
+2019-02-23 23:03:40,647 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:546) INFO  --> Completed initialization in 15 ms
+2019-02-23 23:03:40,914 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:21) INFO  --> account : 111
+2019-02-23 23:03:40,916 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:22) INFO  --> password : 111
+2019-02-23 23:03:40,916 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:23) INFO  --> service received
+2019-02-23 23:04:44,245 org.hibernate.validator.internal.util.Version [background-preinit] (Version.java:21) INFO  --> HV000001: Hibernate Validator 6.0.14.Final
+2019-02-23 23:04:45,021 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:50) INFO  --> Starting MonitorServiceApplication on yangkun with PID 13652 (G:\MonitorService\target\classes started by Administrator in G:\MonitorService)
+2019-02-23 23:04:45,023 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (SpringApplication.java:675) INFO  --> No active profile set, falling back to default profiles: default
+2019-02-23 23:04:48,813 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:90) INFO  --> Tomcat initialized with port(s): 8080 (http)
+2019-02-23 23:04:49,260 org.springframework.web.context.ContextLoader [main] (ServletWebServerApplicationContext.java:296) INFO  --> Root WebApplicationContext: initialization completed in 4000 ms
+2019-02-23 23:04:50,108 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] (ExecutorConfigurationSupport.java:171) INFO  --> Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-23 23:04:50,606 org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] (TomcatWebServer.java:204) INFO  --> Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-23 23:04:50,615 com.tzc.yk.MonitorService.MonitorServiceApplication [main] (StartupInfoLogger.java:59) INFO  --> Started MonitorServiceApplication in 6.97 seconds (JVM running for 13.707)
+2019-02-23 23:05:13,967 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:524) INFO  --> Initializing Servlet 'dispatcherServlet'
+2019-02-23 23:05:13,983 org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] (FrameworkServlet.java:546) INFO  --> Completed initialization in 15 ms
+2019-02-23 23:05:14,194 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:22) INFO  --> account : 111
+2019-02-23 23:05:14,195 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:23) INFO  --> password : 111
+2019-02-23 23:05:14,195 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:24) INFO  --> service received
+2019-02-23 23:09:51,650 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:22) INFO  --> account : 1
+2019-02-23 23:09:51,651 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:23) INFO  --> password : 1
+2019-02-23 23:09:51,652 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:24) INFO  --> service received
+2019-02-23 23:11:22,089 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-5] (LoginController.java:22) INFO  --> account : 1
+2019-02-23 23:11:22,090 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-5] (LoginController.java:23) INFO  --> password : 1
+2019-02-23 23:11:22,090 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-5] (LoginController.java:24) INFO  --> service received
+2019-02-23 23:15:26,067 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-8] (LoginController.java:22) INFO  --> account : 111
+2019-02-23 23:15:26,067 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-8] (LoginController.java:23) INFO  --> password : 111
+2019-02-23 23:15:26,068 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-8] (LoginController.java:24) INFO  --> service received
+2019-02-23 23:17:42,303 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-9] (LoginController.java:22) INFO  --> account : 111
+2019-02-23 23:17:42,304 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-9] (LoginController.java:23) INFO  --> password : 111
+2019-02-23 23:17:42,304 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-9] (LoginController.java:24) INFO  --> service received
+2019-02-23 23:18:59,397 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:22) INFO  --> account : 1
+2019-02-23 23:18:59,398 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:23) INFO  --> password : 1
+2019-02-23 23:18:59,399 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-1] (LoginController.java:24) INFO  --> service received
+2019-02-23 23:20:51,351 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:22) INFO  --> account : 1
+2019-02-23 23:20:51,352 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:23) INFO  --> password : 1
+2019-02-23 23:20:51,352 com.tzc.yk.MonitorService.controller.LoginController [http-nio-8080-exec-3] (LoginController.java:24) INFO  --> service received
