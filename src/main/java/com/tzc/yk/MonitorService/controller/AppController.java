@@ -1,9 +1,7 @@
 package com.tzc.yk.MonitorService.controller;
 
-import com.tzc.yk.MonitorService.pojo.AppTimeItem;
-import com.tzc.yk.MonitorService.pojo.AppTimeRequest;
-import com.tzc.yk.MonitorService.pojo.AppTimeResponse;
-import com.tzc.yk.MonitorService.pojo.User;
+import com.tzc.yk.MonitorService.pojo.*;
+import com.tzc.yk.MonitorService.service.AppConfigService;
 import com.tzc.yk.MonitorService.service.AppService;
 import com.tzc.yk.MonitorService.service.LoginService;
 import org.slf4j.Logger;
@@ -25,6 +23,8 @@ public class AppController {
 
     @Autowired
     AppService appService;
+    @Autowired
+    AppConfigService appConfigService;
 
     @RequestMapping(value = "/uploadAppTimeInfo",method = RequestMethod.POST)
     @ResponseBody
@@ -49,8 +49,21 @@ public class AppController {
     @ResponseBody
     public List<AppTimeResponse> getAppTimeInfo(@RequestParam("account") String account){
         List<AppTimeResponse> datas = null;
+        List<AppConfig> appConfigList = null;
+        Map<String,String> processNameToAppName = new HashMap<>();
         try {
             datas = appService.getAppTimeInfo(account,null);
+            appConfigList = appConfigService.getAppConfig();
+
+            for(AppConfig appConfig:appConfigList){
+                processNameToAppName.put(appConfig.getProcessName(),appConfig.getName());
+            }
+
+            for(AppTimeResponse appTimeResponse : datas){
+                if(processNameToAppName.containsKey(appTimeResponse.getSoft())){
+                    appTimeResponse.setSoft(processNameToAppName.get(appTimeResponse.getSoft()));
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -28,7 +28,7 @@ public class LoginService implements com.tzc.yk.MonitorService.service.LoginServ
         String softs = "";
         String phone = "";
 
-        List<User> ls = loginMapper.login(account);
+        List<User> ls = loginMapper.getUserInfoByAccount(account);
         if(ls==null || ls.size()==0){
             code = 2;
         }else{

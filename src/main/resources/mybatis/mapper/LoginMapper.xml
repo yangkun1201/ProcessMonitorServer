@@ -8,7 +8,7 @@
         select * from user;
     </select>
 
-    <select id="login" resultType="User">
+    <select id="getUserInfoByAccount" resultType="User">
         select * from user where account = #{account}
     </select>
 

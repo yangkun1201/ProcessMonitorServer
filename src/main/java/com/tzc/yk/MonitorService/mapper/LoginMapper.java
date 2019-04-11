@@ -10,6 +10,6 @@ import java.util.List;
 public interface LoginMapper {
     List<User> test() throws Exception;
 
-    List<User> login(@Param("account") String account) throws Exception;
+    List<User> getUserInfoByAccount(@Param("account") String account) throws Exception;
 
 }

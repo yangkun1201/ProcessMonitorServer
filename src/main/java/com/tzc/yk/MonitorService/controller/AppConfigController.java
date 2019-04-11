@@ -1,11 +1,8 @@
 package com.tzc.yk.MonitorService.controller;
 
-import com.tzc.yk.MonitorService.pojo.AppTimeItem;
-import com.tzc.yk.MonitorService.pojo.AppTimeRequest;
-import com.tzc.yk.MonitorService.pojo.AppTimeResponse;
-import com.tzc.yk.MonitorService.pojo.User;
+import com.tzc.yk.MonitorService.pojo.*;
+import com.tzc.yk.MonitorService.service.AppConfigService;
 import com.tzc.yk.MonitorService.service.AppService;
-import com.tzc.yk.MonitorService.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,43 +15,66 @@ import java.util.Map;
 
 @Controller
 @CrossOrigin
-public class AppController {
+public class AppConfigController {
 
 
-    Logger logger = LoggerFactory.getLogger(AppController.class);
+    Logger logger = LoggerFactory.getLogger(AppConfigController.class);
 
     @Autowired
-    AppService appService;
+    AppConfigService appConfigService;
 
-    @RequestMapping(value = "/uploadAppTimeInfo",method = RequestMethod.POST)
+    @RequestMapping(value = "/getAppConfigInfo",method = RequestMethod.GET)
     @ResponseBody
-    public Map<String,Object> uploadAppTimeInfo(@RequestBody AppTimeRequest appTimeRequest){
-        Map<String,Object> datas = new HashMap<>();
-
-        logger.info(appTimeRequest.getAccount());
-        for(AppTimeItem appTimeItem:appTimeRequest.getAppStatus()){
-            logger.info(appTimeItem.getAppName());
-            logger.info(appTimeItem.getAppTime()+"");
-        }
+    public List<AppConfig> getAppConfigInfo(){
+        List<AppConfig> appConfigList = null;
         try {
-            appService.addAppTimeInfo(appTimeRequest);
+            appConfigList = appConfigService.getAppConfig();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        datas.put("status","ok");
-        return datas;
+        return appConfigList;
     }
 
-    @RequestMapping(value = "/getAppTimeInfo",method = RequestMethod.GET)
+    @RequestMapping(value = "/getUserInfoByAccount",method = RequestMethod.GET)
     @ResponseBody
-    public List<AppTimeResponse> getAppTimeInfo(@RequestParam("account") String account){
-        List<AppTimeResponse> datas = null;
+    public User getUserInfoByAccount(@RequestParam("account") String account){
+        User user = null;
         try {
-            datas = appService.getAppTimeInfo(account,null);
+            user = appConfigService.getUserInfoByAccount(account);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return datas;
+        return user;
+    }
+
+    @RequestMapping(value = "updateUserSofts",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> updateUserSofts(@RequestParam("account")String account,
+                                              @RequestParam("softs")String softs){
+        Map<String,Object> result = new HashMap<>();
+        try {
+            appConfigService.updateUserSofts(account, softs);
+            result.put("status","ok");
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("status","failure");
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "addSoftsConfig",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> addSoftsConfig(@RequestParam("name")String name,
+                                             @RequestParam("processname")String processname){
+        Map<String,Object> result = new HashMap<>();
+        try {
+            appConfigService.addSoftsConfig(name, processname);
+            result.put("status","ok");
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("status","failure");
+        }
+        return result;
     }
 
 }

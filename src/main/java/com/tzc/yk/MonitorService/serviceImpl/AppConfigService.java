@@ -1,45 +1,39 @@
 package com.tzc.yk.MonitorService.serviceImpl;
 
-import com.tzc.yk.MonitorService.mapper.AppMapper;
+import com.tzc.yk.MonitorService.mapper.AppConfigMapper;
 import com.tzc.yk.MonitorService.mapper.LoginMapper;
-import com.tzc.yk.MonitorService.pojo.AppTimeItem;
-import com.tzc.yk.MonitorService.pojo.AppTimeRequest;
-import com.tzc.yk.MonitorService.pojo.AppTimeResponse;
+import com.tzc.yk.MonitorService.pojo.AppConfig;
 import com.tzc.yk.MonitorService.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
-public class AppService implements com.tzc.yk.MonitorService.service.AppService {
+public class AppConfigService implements com.tzc.yk.MonitorService.service.AppConfigService {
 
     @Autowired
-    AppMapper appMapper;
+    AppConfigMapper appConfigMapper;
+    @Autowired
+    LoginMapper loginMapper;
 
     @Override
-    public void addAppTimeInfo(AppTimeRequest appTimeRequest) throws Exception {
-        String account = appTimeRequest.getAccount();
-        List<AppTimeItem> apps = appTimeRequest.getAppStatus();
-        for(AppTimeItem app : apps){
-            List<AppTimeResponse> ls = appMapper.getAppTimeInfo(account,app.getAppName());
-            if(ls.size()==0){ //查询列表为空，新增数据
-                appMapper.addAppTimeInfo(account,app.getAppName(),app.getAppTime(),0);
-            }else{ //查询列表非空，更新数据
-                AppTimeResponse oldData = ls.get(0);
-                int curTime = app.getAppTime();
-                int totalTime = oldData.getCurTime() + oldData.getTotalTime();
-                appMapper.updateAppTimeInfo(account,app.getAppName(),curTime,totalTime);
-            }
-        }
-
+    public List<AppConfig> getAppConfig() throws Exception {
+        return appConfigMapper.getAppConfig();
     }
 
     @Override
-    public List<AppTimeResponse> getAppTimeInfo(String account, String soft) throws Exception {
-        return appMapper.getAppTimeInfo(account,soft);
+    public User getUserInfoByAccount(String account) throws Exception {
+        return loginMapper.getUserInfoByAccount(account).get(0);
     }
 
+    @Override
+    public void updateUserSofts(String account, String sotfs) throws Exception {
+        appConfigMapper.updateUserSofts(account,sotfs);
+    }
+
+    @Override
+    public void addSoftsConfig(String name, String processname) throws Exception {
+        appConfigMapper.addSoftsConfig(name, processname);
+    }
 }

@@ -2,14 +2,24 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tzc.yk.MonitorService.mapper.LoginMapper">
+<mapper namespace="com.tzc.yk.MonitorService.mapper.AppConfigMapper">
 
-    <select id="test" resultType="User">
-        select * from user;
+    <resultMap id="appConfig" type="com.tzc.yk.MonitorService.pojo.AppConfig">
+        <id column="id" property="id" jdbcType="INTEGER"></id>
+        <result column="name" property="name" jdbcType="VARCHAR"></result>
+        <result column="processname" property="processName" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <select id="getAppConfig" resultMap="appConfig">
+      select * from softsconfig
     </select>
 
-    <select id="login" resultType="User">
-        select * from user where account = #{account}
-    </select>
+    <update id="updateUserSofts">
+        update user set softs = #{softs} where account = #{account}
+    </update>
+
+    <insert id="addSoftsConfig">
+        insert into softsconfig (name, processname) VALUES (#{name},#{processname})
+    </insert>
 
 </mapper>
