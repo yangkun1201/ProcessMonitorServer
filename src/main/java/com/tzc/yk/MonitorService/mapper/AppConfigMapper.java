@@ -18,4 +18,6 @@ public interface AppConfigMapper {
     void addSoftsConfig(@Param("name")String name,
                         @Param("processname")String processname) throws Exception;
 
+    void deleteSoftsConfigById(@Param("id")int id) throws Exception;
+
 }

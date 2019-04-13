@@ -77,4 +77,18 @@ public class AppConfigController {
         return result;
     }
 
+    @RequestMapping(value = "deleteSoftsConfigById",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> deleteSoftsConfigById(@RequestParam("id")int id){
+        Map<String,Object> result = new HashMap<>();
+        try {
+            appConfigService.deleteSoftsConfigById(id);
+            result.put("status","ok");
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("status","failure");
+        }
+        return result;
+    }
+
 }

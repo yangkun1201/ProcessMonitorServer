@@ -22,4 +22,8 @@
         insert into softsconfig (name, processname) VALUES (#{name},#{processname})
     </insert>
 
+    <delete id="deleteSoftsConfigById">
+        delete from softsconfig where id = #{id}
+    </delete>
+
 </mapper>

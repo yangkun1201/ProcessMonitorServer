@@ -18,4 +18,6 @@ public interface AppConfigService {
 
     void addSoftsConfig(String name,String processname) throws Exception;
 
+    void deleteSoftsConfigById(int id) throws Exception;
+
 }

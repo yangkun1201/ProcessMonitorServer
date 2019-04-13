@@ -52,4 +52,16 @@ public class LoginService implements com.tzc.yk.MonitorService.service.LoginServ
         return datas;
     }
 
+    @Override
+    public void registeredAccount(User user) throws Exception {
+        loginMapper.registeredAccount(user);
+    }
+
+    @Override
+    public boolean checkAccountExist(String account) throws Exception {
+        if(loginMapper.getUserInfoByAccount(account).size()>0){
+            return true;
+        }
+        return false;
+    }
 }

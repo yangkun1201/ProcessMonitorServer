@@ -36,4 +36,9 @@ public class AppConfigService implements com.tzc.yk.MonitorService.service.AppCo
     public void addSoftsConfig(String name, String processname) throws Exception {
         appConfigMapper.addSoftsConfig(name, processname);
     }
+
+    @Override
+    public void deleteSoftsConfigById(int id) throws Exception {
+        appConfigMapper.deleteSoftsConfigById(id);
+    }
 }

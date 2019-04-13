@@ -28,8 +28,7 @@ public class LoginController {
 
         logger.info("account : " + user.getAccount());
         logger.info("password : " + user.getPassword());
-        logger.info("servie received");
-
+        logger.info("service received");
 
         Map<String,Object> datas = null;
         try {
@@ -50,6 +49,36 @@ public class LoginController {
             e.printStackTrace();
         }
         return ls;
+    }
+
+    @RequestMapping(value = "/registeredAccount",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> registeredAccount(@RequestBody User user){
+        Map<String,Object> result = new HashMap<>();
+        try {
+            loginService.registeredAccount(user);
+            result.put("status","ok");
+        } catch (Exception e) {
+            result.put("status","failure");
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "checkAccountExist",method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String,Object> checkAccountExist(@RequestParam("account")String account){
+        Map<String,Object> result = new HashMap<>();
+        try {
+            if(loginService.checkAccountExist(account)){
+                result.put("isExist",1);
+            }else{
+                result.put("isExist",0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
 }

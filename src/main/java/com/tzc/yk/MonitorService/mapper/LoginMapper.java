@@ -12,4 +12,6 @@ public interface LoginMapper {
 
     List<User> getUserInfoByAccount(@Param("account") String account) throws Exception;
 
+    void registeredAccount(User user) throws Exception;
+
 }

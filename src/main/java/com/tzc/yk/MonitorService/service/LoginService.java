@@ -10,4 +10,8 @@ public interface LoginService {
 
     Map<String,Object> login(String account, String password) throws Exception;
 
+    void registeredAccount(User user) throws Exception;
+
+    boolean checkAccountExist(String account) throws Exception;
+
 }
