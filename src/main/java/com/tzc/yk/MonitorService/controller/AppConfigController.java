@@ -2,7 +2,6 @@ package com.tzc.yk.MonitorService.controller;
 
 import com.tzc.yk.MonitorService.pojo.*;
 import com.tzc.yk.MonitorService.service.AppConfigService;
-import com.tzc.yk.MonitorService.service.AppService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

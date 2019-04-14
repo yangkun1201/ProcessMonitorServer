@@ -2,6 +2,8 @@ package com.tzc.yk.MonitorService.controller;
 
 import com.tzc.yk.MonitorService.pojo.User;
 import com.tzc.yk.MonitorService.service.LoginService;
+import com.tzc.yk.MonitorService.util.RandomUtil;
+import com.tzc.yk.MonitorService.util.SmsUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,6 +80,17 @@ public class LoginController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return result;
+    }
+
+    @RequestMapping(value = "sendSms",method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String,Object> sendSms(@RequestParam("phone")String phone){
+        Map<String,Object> result = new HashMap<>();
+        String verificationCode = RandomUtil.getInstance().getVerificationCode();
+        String sendResult = SmsUtil.getInstances().sendSms(phone,verificationCode);
+        result.put("status",sendResult);
+        result.put("verificationCode",verificationCode);
         return result;
     }
 
