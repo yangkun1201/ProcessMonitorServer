@@ -1,7 +1,10 @@
 package com.tzc.yk.MonitorService.controller;
 
+import com.google.zxing.WriterException;
+import com.tzc.yk.MonitorService.enums.QrCodeScanStatus;
 import com.tzc.yk.MonitorService.pojo.User;
 import com.tzc.yk.MonitorService.service.LoginService;
+import com.tzc.yk.MonitorService.util.QrCodeUtil;
 import com.tzc.yk.MonitorService.util.RandomUtil;
 import com.tzc.yk.MonitorService.util.SmsUtil;
 import org.slf4j.Logger;
@@ -10,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +25,8 @@ public class LoginController {
 
 
     Logger logger = LoggerFactory.getLogger(LoginController.class);
+
+    Map<String,String> qrCodeLoginStatus = new HashMap<>();
 
     @Autowired
     LoginService loginService;
@@ -91,6 +98,53 @@ public class LoginController {
         String sendResult = SmsUtil.getInstances().sendSms(phone,verificationCode);
         result.put("status",sendResult);
         result.put("verificationCode",verificationCode);
+        return result;
+    }
+
+    @RequestMapping(value = "getQrCodeImageBase64",method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String,Object> getQrCodeImageBase64(){
+        Map<String,Object> result = new HashMap<>();
+        try {
+            String uuid = QrCodeUtil.getInstance().getUuid();
+            byte[] imageBytes = QrCodeUtil.getInstance().createQrCode(uuid);
+            String base64Code = Base64.getEncoder().encodeToString(imageBytes);
+            result.put("qrCodeInBase64",base64Code);
+            result.put("uuid",uuid);
+        } catch (WriterException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "loginByQrCode",method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String,Object> loginByQrCode(@RequestParam("account")String account,@RequestParam("uuid")String uuid){
+        Map<String,Object> result = new HashMap<>();
+        qrCodeLoginStatus.put(uuid,account);
+        result.put("status","ok");
+        for(Map.Entry<String,String> entry:qrCodeLoginStatus.entrySet()){
+            logger.info(entry.getKey() + ":" + entry.getValue());
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "queryQrCodeScanStatus",method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String,Object> queryQrCodeScanStatus(@RequestParam("uuid")String uuid){
+        Map<String,Object> result = new HashMap<>();
+        String account = "";
+        if(qrCodeLoginStatus.containsKey(uuid)){
+            account = qrCodeLoginStatus.get(uuid);
+        }
+        if(account != null && account != ""){
+            result.put("scanStatus", QrCodeScanStatus.SUCCESS.getValue());
+            result.put("account",account);
+        }else{
+            result.put("scanStatus", QrCodeScanStatus.FAILURE.getValue());
+        }
         return result;
     }
 
