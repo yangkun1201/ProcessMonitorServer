@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tzc.yk.MonitorService.mapper.LoginMapper">
 
+    <resultMap id="faceItem" type="FaceItem">
+        <id property="account" column="account" jdbcType="VARCHAR"></id>
+        <result property="faceId" column="face_base64" jdbcType="VARCHAR"></result>
+    </resultMap>
+
     <select id="test" resultType="User">
         select * from user;
     </select>
@@ -15,5 +20,17 @@
     <insert id="registeredAccount" parameterType="User">
         insert into user VALUES (#{account},#{username},#{password},#{phone},'')
     </insert>
+
+    <insert id="addFaceId">
+        insert into faceid VALUES (#{account},#{faceBase64})
+    </insert>
+
+    <select id="getAllFaces" resultMap="faceItem">
+        select * from faceid;
+    </select>
+
+    <update id="updateFaceId">
+        update faceid set face_base64 = #{faceId} where account = #{account}
+    </update>
 
 </mapper>

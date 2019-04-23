@@ -1,6 +1,7 @@
 package com.tzc.yk.MonitorService.serviceImpl;
 
 import com.tzc.yk.MonitorService.mapper.LoginMapper;
+import com.tzc.yk.MonitorService.pojo.FaceItem;
 import com.tzc.yk.MonitorService.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,5 +64,28 @@ public class LoginService implements com.tzc.yk.MonitorService.service.LoginServ
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void addFaceId(String account, String faceBase64) throws Exception {
+        List<FaceItem> faceItemList = loginMapper.getAllFaces();
+        boolean hasAccount = false;
+        for(FaceItem faceItem:faceItemList){
+            if(faceItem.getAccount().equals(account)){
+                hasAccount = true;
+                break;
+            }
+        }
+        if(hasAccount){
+            loginMapper.updateFaceId(account,faceBase64);
+        }else{
+            loginMapper.addFaceId(account, faceBase64);
+        }
+
+    }
+
+    @Override
+    public List<FaceItem> getAllFaces() throws Exception {
+        return loginMapper.getAllFaces();
     }
 }

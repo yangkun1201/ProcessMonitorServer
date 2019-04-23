@@ -2,6 +2,7 @@ package com.tzc.yk.MonitorService.controller;
 
 import com.google.zxing.WriterException;
 import com.tzc.yk.MonitorService.enums.QrCodeScanStatus;
+import com.tzc.yk.MonitorService.pojo.FaceItem;
 import com.tzc.yk.MonitorService.pojo.User;
 import com.tzc.yk.MonitorService.service.LoginService;
 import com.tzc.yk.MonitorService.util.QrCodeUtil;
@@ -13,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.HashMap;
@@ -146,6 +149,58 @@ public class LoginController {
             result.put("scanStatus", QrCodeScanStatus.FAILURE.getValue());
         }
         return result;
+    }
+
+    @RequestMapping(value = "addFaceId",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> addFaceId(@RequestBody FaceItem faceItem){
+        Map<String,Object> result = new HashMap<>();
+        try {
+            loginService.addFaceId(faceItem.getAccount(), faceItem.getFaceId());
+            result.put("status","ok");
+            //base64ToFile(faceItem.getFaceId(),"face.jpg");
+        } catch (Exception e) {
+            result.put("status","failure");
+            result.put("reason",e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static void base64ToFile(String base64, String fileName) {
+        File file = null;
+        //创建文件目录
+        String filePath="E:\\image";
+        File  dir=new File(filePath);
+        if (!dir.exists() && !dir.isDirectory()) {
+            dir.mkdirs();
+        }
+        BufferedOutputStream bos = null;
+        java.io.FileOutputStream fos = null;
+        try {
+            byte[] bytes = Base64.getDecoder().decode(base64);
+            file=new File(filePath+"\\"+fileName);
+            fos = new java.io.FileOutputStream(file);
+            bos = new BufferedOutputStream(fos);
+            bos.write(bytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (bos != null) {
+                try {
+                    bos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 }

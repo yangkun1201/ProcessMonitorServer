@@ -1,5 +1,6 @@
 package com.tzc.yk.MonitorService.service;
 
+import com.tzc.yk.MonitorService.pojo.FaceItem;
 import com.tzc.yk.MonitorService.pojo.User;
 
 import java.util.List;
@@ -13,5 +14,9 @@ public interface LoginService {
     void registeredAccount(User user) throws Exception;
 
     boolean checkAccountExist(String account) throws Exception;
+
+    void addFaceId(String account, String faceBase64) throws Exception;
+
+    List<FaceItem> getAllFaces() throws Exception;
 
 }
