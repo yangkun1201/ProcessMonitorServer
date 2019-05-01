@@ -167,40 +167,27 @@ public class LoginController {
         return result;
     }
 
-    public static void base64ToFile(String base64, String fileName) {
-        File file = null;
-        //创建文件目录
-        String filePath="E:\\image";
-        File  dir=new File(filePath);
-        if (!dir.exists() && !dir.isDirectory()) {
-            dir.mkdirs();
-        }
-        BufferedOutputStream bos = null;
-        java.io.FileOutputStream fos = null;
+    @RequestMapping(value = "verificationFaceId",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> verificationFaceId(@RequestParam("faceId") String faceId){
+        Map<String,Object> result = new HashMap<>();
+        faceId = faceId.replace(" ","+");
+        logger.info(faceId);
         try {
-            byte[] bytes = Base64.getDecoder().decode(base64);
-            file=new File(filePath+"\\"+fileName);
-            fos = new java.io.FileOutputStream(file);
-            bos = new BufferedOutputStream(fos);
-            bos.write(bytes);
+            Map<String,Object> faceToAccount = loginService.getAccountByFaceId(faceId);
+            if(faceToAccount != null){
+                String account = ((String) faceToAccount.get("account"));
+                result.put("status","ok");
+                result.put("account",account);
+                result.put("name",loginService.getUserInfoByAccount(account).getUsername());
+                result.put("confidence",faceToAccount.get("confidence"));
+            }else{
+                result.put("status","failure");
+            }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (bos != null) {
-                try {
-                    bos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (fos != null) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
+        return result;
     }
 
 }

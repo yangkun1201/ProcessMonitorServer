@@ -1,11 +1,17 @@
 package com.tzc.yk.MonitorService.serviceImpl;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.tzc.yk.MonitorService.mapper.LoginMapper;
 import com.tzc.yk.MonitorService.pojo.FaceItem;
 import com.tzc.yk.MonitorService.pojo.User;
+import okhttp3.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +21,8 @@ public class LoginService implements com.tzc.yk.MonitorService.service.LoginServ
 
     @Autowired
     LoginMapper loginMapper;
+
+    Logger logger = LoggerFactory.getLogger(LoginService.class);
 
     @Override
     public List<User> test() throws Exception {
@@ -87,5 +95,58 @@ public class LoginService implements com.tzc.yk.MonitorService.service.LoginServ
     @Override
     public List<FaceItem> getAllFaces() throws Exception {
         return loginMapper.getAllFaces();
+    }
+
+    @Override
+    public Map<String,Object> getAccountByFaceId(String faceId) throws Exception {
+
+        Map<String,Object> data = new HashMap<>();
+        List<FaceItem> faceItems = getAllFaces();
+        for(FaceItem faceItem : faceItems){
+            double confidence = compareFaces(faceId,faceItem.getFaceId());
+            if(confidence > 85){
+                data.put("account",faceItem.getAccount());
+                data.put("confidence",confidence);
+                return data;
+            }
+        }
+        return null;
+    }
+
+    double compareFaces(String face1,String face2){
+        double confidence = 0;
+        String apiKey = "q7Xo9qxCY2mWGbVIWgFfd-m-Mjn7tBMA";
+        String api_secret = "qemnywB2_l8mqP2mjCLqcUvj9J4CifOW";
+
+        RequestBody requestBody = new FormBody.Builder()
+                .add("api_key",apiKey)
+                .add("api_secret",api_secret)
+                .add("image_base64_1",face1)
+                .add("image_base64_2",face2)
+                .build();
+
+        Request request = new Request.Builder()
+                .url("https://api-cn.faceplusplus.com/facepp/v3/compare")
+                .post(requestBody)
+                .build();
+
+        OkHttpClient client = new OkHttpClient();
+        try {
+            Response response = client.newCall(request).execute();
+            String result = response.body().string();
+            System.out.println(result);
+            JsonObject jsonObject = new JsonParser().parse(result).getAsJsonObject();
+            confidence = jsonObject.get("confidence").getAsDouble();
+            System.out.println(confidence);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return confidence;
+    }
+
+    @Override
+    public User getUserInfoByAccount(String account) throws Exception {
+        return loginMapper.getUserInfoByAccount(account).get(0);
     }
 }

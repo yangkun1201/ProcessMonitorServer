@@ -19,4 +19,8 @@ public interface LoginService {
 
     List<FaceItem> getAllFaces() throws Exception;
 
+    Map<String,Object> getAccountByFaceId(String faceId) throws Exception;
+
+    User getUserInfoByAccount(String account) throws Exception;
+
 }
