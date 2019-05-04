@@ -7,6 +7,7 @@ public class User {
     private String phone;
     private String softs;
     private String username;
+    private String imgBase64;
 
     public String getUsername() {
         return username;
@@ -46,5 +47,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImgBase64() {
+        return imgBase64;
+    }
+
+    public void setImgBase64(String imgBase64) {
+        this.imgBase64 = imgBase64;
     }
 }

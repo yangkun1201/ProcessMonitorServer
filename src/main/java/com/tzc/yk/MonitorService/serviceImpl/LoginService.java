@@ -64,6 +64,7 @@ public class LoginService implements com.tzc.yk.MonitorService.service.LoginServ
     @Override
     public void registeredAccount(User user) throws Exception {
         loginMapper.registeredAccount(user);
+        addFaceId(user.getAccount(),user.getImgBase64());
     }
 
     @Override
