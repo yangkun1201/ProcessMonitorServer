@@ -26,11 +26,11 @@ public class AppService implements com.tzc.yk.MonitorService.service.AppService 
         for(AppTimeItem app : apps){
             List<AppTimeResponse> ls = appMapper.getAppTimeInfo(account,app.getAppName());
             if(ls.size()==0){ //查询列表为空，新增数据
-                appMapper.addAppTimeInfo(account,app.getAppName(),app.getAppTime(),0);
+                appMapper.addAppTimeInfo(account,app.getAppName(),app.getAppTime(),app.getAppTime());
             }else{ //查询列表非空，更新数据
                 AppTimeResponse oldData = ls.get(0);
                 int curTime = app.getAppTime();
-                int totalTime = oldData.getCurTime() + oldData.getTotalTime();
+                int totalTime = curTime + oldData.getTotalTime();
                 appMapper.updateAppTimeInfo(account,app.getAppName(),curTime,totalTime);
             }
         }
