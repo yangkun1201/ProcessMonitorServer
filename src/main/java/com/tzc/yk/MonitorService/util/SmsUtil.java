@@ -42,7 +42,7 @@ public class SmsUtil {
         data.put("code",message);
         String templateParam = gson.toJson(data);
 
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAIiY3klMjraJmZ", "c0A5dWVuOgaNNmiw3Szp69wLY1dVMe");
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "", "");
         IAcsClient client = new DefaultAcsClient(profile);
 
         CommonRequest request = new CommonRequest();
